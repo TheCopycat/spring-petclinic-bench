@@ -39,6 +39,6 @@ class PetClinicSimulation extends Simulation{
       .body(ElFileBody("pet.json.tpl")).asJson)
     .exec(http("get /api/customer/owners").get("/api/customer/owners"))
 
-  setUp(viewOwnerScenario.inject(constantUsersPerSec(50) during(60.seconds)),
-    editPetTypeScenario.inject(constantUsersPerSec(25) during(60.seconds))).protocols(httpProtocol)
+  setUp(viewOwnerScenario.inject(constantUsersPerSec(2) during(900.seconds)),
+    editPetTypeScenario.inject(constantUsersPerSec(1) during(900.seconds))).protocols(httpProtocol)
 }
